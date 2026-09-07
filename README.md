@@ -1,6 +1,6 @@
 # JavaScript Essentials Lab
 
-**Student Name:** Byron Keck
+**Student Name:** Byron Keck 
 **Course:** React.js Web Development
 **Semester:** Fall
 
