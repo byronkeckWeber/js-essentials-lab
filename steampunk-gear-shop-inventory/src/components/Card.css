@@ -1,0 +1,9 @@
+.container {
+    border: 2.5px dashed darkred;
+    margin: 15px;
+    padding: 15px;
+    background-color: goldenrod;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: black;
+    border-radius: 20px;
+}
