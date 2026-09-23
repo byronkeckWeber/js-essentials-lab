@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TodoInput from './components/TodoInput';
 import TodoItem from './components/TodoItem';
+//Added TodoItem.jsx for my custom styling
 import './App.css';
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
       <section id="todos">
         <ul>
           {todoItems.map(todo => (
+            // Using a TodoItem to apply my custom styling
             <TodoItem key={todo.id} onClick={() => deleteItemHandler(todo.id)}>
               {todo.text}
             </TodoItem>
