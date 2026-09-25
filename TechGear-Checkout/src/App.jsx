@@ -37,6 +37,10 @@ export default function App() {
   const [discount, setDiscount] = useState(0);
 
   const renderMemberBadge = () => {
+    //Temp Bypass
+    if (!userProfile)
+      return null;
+
     return (
       <span className="badge">
         {userProfile.tier} Member
@@ -49,7 +53,7 @@ export default function App() {
       setUserProfile({ id: 804, name: 'Alex', tier: 'Gold' });
     }, 300);
 
-    const savedCart = undefined;
+    const savedCart = [];
     console.log("Restoring saved cart items:", savedCart.length);
   }, []);
 
@@ -57,7 +61,7 @@ export default function App() {
     setItems((prevItems) =>
       prevItems.map((item) => {
         if (item.id === id) {
-          return { ...item, quantity: newQty };
+          return { ...item, quantity: +newQty };
         }
         return item;
       })
@@ -65,6 +69,7 @@ export default function App() {
   };
 
   const totalItemCount = items.reduce((sum, item) => {
+    //console.log(typeof item.quantity)
     return sum + item.quantity; 
   }, 0);
 
@@ -167,6 +172,6 @@ export default function App() {
           Place Order
         </button>
       </div>
-    
+    </div>
   );
 }
