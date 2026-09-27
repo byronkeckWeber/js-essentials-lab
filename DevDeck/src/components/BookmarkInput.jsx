@@ -30,7 +30,7 @@ const BookmarkInput = props => {
         <h2>Add New Resource</h2>
       </div>
 
-      <div className={`${styles.field} ${!isValid ? 'invalid' : ''}`}>
+      <div className={`${styles.field} ${!isValid ? styles.invalid : ''}`}>
         <label>Title</label>
         <input
           type="text"
@@ -42,7 +42,7 @@ const BookmarkInput = props => {
         />
       </div>
 
-      <div className={`${styles.field} ${!isValid ? 'invalid' : ''}`}>
+      <div className={`${styles.field} ${!isValid ? styles.invalid : ''}`}>
         <label>URL</label>
         <input
           type="text"
@@ -65,7 +65,7 @@ const BookmarkInput = props => {
 
       {!isValid && <p className={styles.error}>Please fill out both the Title and URL fields.</p>}
 
-      <button type="submit">Add Bookmark</button>
+      <SubmitButton type="submit">Add Bookmark</SubmitButton>
     </form>
   );
 };
