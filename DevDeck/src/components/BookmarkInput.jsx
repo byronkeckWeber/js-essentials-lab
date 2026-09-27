@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import styles from './BookmarkInput.module.css';
+import SubmitButton from './BookmarkInput.styled';
 
 const BookmarkInput = props => {
   const [title, setTitle] = useState('');
@@ -23,12 +25,12 @@ const BookmarkInput = props => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form className={styles.form} onSubmit={submitHandler}>
       <div>
         <h2>Add New Resource</h2>
       </div>
 
-      <div className={!isValid ? 'invalid' : ''}>
+      <div className={`${styles.field} ${!isValid ? 'invalid' : ''}`}>
         <label>Title</label>
         <input
           type="text"
@@ -40,7 +42,7 @@ const BookmarkInput = props => {
         />
       </div>
 
-      <div className={!isValid ? 'invalid' : ''}>
+      <div className={`${styles.field} ${!isValid ? 'invalid' : ''}`}>
         <label>URL</label>
         <input
           type="text"
@@ -52,7 +54,7 @@ const BookmarkInput = props => {
         />
       </div>
 
-      <div>
+      <div className={styles.field}>
         <label>Category</label>
         <select value={category} onChange={e => setCategory(e.target.value)}>
           <option value="Documentation">Documentation</option>
@@ -61,7 +63,7 @@ const BookmarkInput = props => {
         </select>
       </div>
 
-      {!isValid && <p>Please fill out both the Title and URL fields.</p>}
+      {!isValid && <p className={styles.error}>Please fill out both the Title and URL fields.</p>}
 
       <button type="submit">Add Bookmark</button>
     </form>

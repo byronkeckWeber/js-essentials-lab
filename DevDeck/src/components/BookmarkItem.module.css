@@ -1,0 +1,31 @@
+.favorite {
+    background-color: lightgreen;
+    color: rgb(14, 18, 255);
+}
+
+.normal {
+    background-color: aliceblue;
+    color: black;
+}
+
+.item {
+    margin: 1rem;
+    padding: 1.2rem;
+    border-radius: 14px;
+    border: 1px solid lightsalmon;
+    background-color: lightgoldenrodyellow;
+}
+
+.title {
+    font-size: medium;
+}
+
+.buttons button {
+    margin: 12px;
+    border: 2px solid black;
+}
+
+.delete {
+    background-color: rgb(250, 152, 141);
+    color: rgb(143, 0, 0);
+}

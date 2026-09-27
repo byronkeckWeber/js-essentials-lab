@@ -1,13 +1,14 @@
 import BookmarkItem from './BookmarkItem';
 
 const BookmarkList = props => {
+
   if (props.items.length === 0) {
     return <p>No bookmarks found in this category.</p>;
   }
 
   return (
     <ul>
-      //made variable names consistant, using items
+      {/*made variable names consistant, using items*/}
       {props.items.map(bookmark => (
         <BookmarkItem
           key={bookmark.id}

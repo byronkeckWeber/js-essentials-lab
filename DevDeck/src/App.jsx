@@ -2,6 +2,7 @@ import { useState } from 'react';
 // Importing components
 import BookmarkInput from './components/BookmarkInput';
 import BookmarkList from './components/BookmarkList';
+import './App.css'
 
 const INITIAL_BOOKMARKS = [
   { id: 'b1', title: 'React Documentation', url: 'https://react.dev', category: 'Documentation', isFavorite: true },
@@ -41,7 +42,7 @@ const App = () => {
     : bookmarks.filter(b => b.category === selectedCategory);
 
   return (
-    <div>
+    <div className='DevDeck'>
       <header>
         <h1>DevDeck</h1>
         <p>Your Developer Resource Hub</p>
@@ -53,7 +54,7 @@ const App = () => {
         </section>
 
         <section>
-          <div>
+          <div className='filter'>
             <label>Filter by Category: </label>
             <select
               value={selectedCategory}

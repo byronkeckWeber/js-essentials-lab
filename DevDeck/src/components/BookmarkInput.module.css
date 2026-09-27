@@ -1,0 +1,36 @@
+.form {
+  margin: 0 auto 1.5rem;
+  padding: 1rem;
+  border: 1px solid lightsalmon;
+  border-radius: 12px;
+  background-color: aliceblue;
+}
+
+.field {
+  margin-bottom: 0.75rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4rem;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+
+.invalid input {
+  border-color: red;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0;
+}
