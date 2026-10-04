@@ -26,9 +26,8 @@ const BookmarkInput = props => {
 
   return (
     <form className={styles.form} onSubmit={submitHandler}>
-      <div>
-        <h2>Add New Resource</h2>
-      </div>
+
+      <h2>Add New Resource</h2>
 
       <div className={`${styles.field} ${!isValid ? styles.invalid : ''}`}>
         <label>Title</label>

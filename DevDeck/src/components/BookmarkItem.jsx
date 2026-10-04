@@ -3,11 +3,12 @@ import styles from './BookmarkItem.module.css';
 const BookmarkItem = props => {
   return (
     <li className={styles.item}>
-      <div className={styles.title}>
+
+      <>
         {/* Added a green title for favorited items and black for not favorited items*/}
         <h3 style={{color: props.isFavorite ? 'green' : 'black'}}>{props.title}</h3>
-        <span>{props.category}</span>
-      </div>
+        <span className={styles.title}>{props.category}</span>
+      </>
 
       <p>
         <a href={props.url} target="_blank" rel="noreferrer">
