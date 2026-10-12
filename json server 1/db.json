@@ -1,0 +1,23 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Ender's Game",
+      "author": "Orson Scott Card",
+      "publishYear": "1875"
+    },
+    {
+      "id": "2",
+      "title": "Time of our Lives",
+      "author": "Mary Jane",
+      "publishYear": "1998"
+    },
+    {
+      "title": "The Way of Kings",
+      "author": "Brandon Sanderson",
+      "publishYear": "2008",
+      "id": "yIkmqMDCQl0"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
