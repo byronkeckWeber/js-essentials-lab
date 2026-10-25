@@ -8,11 +8,9 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    // Rounded to cents so leftover decimals do not build up in the total
     const updatedTotalAmount =
       Math.round((state.totalAmount + action.item.price * action.item.amount) * 100) / 100;
 
-    // Check if the book is already in the cart
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
@@ -21,7 +19,6 @@ const cartReducer = (state, action) => {
     let updatedItems;
 
     if (existingCartItem) {
-      // Same book, so just add to its amount
       const updatedItem = {
         ...existingCartItem,
         amount: existingCartItem.amount + action.item.amount,
@@ -44,14 +41,12 @@ const cartReducer = (state, action) => {
       (item) => item.id === action.id
     );
     const existingItem = state.items[existingCartItemIndex];
-    // Rounded to cents, otherwise an empty cart can show $-0.00
     const updatedTotalAmount =
       Math.round((state.totalAmount - existingItem.price) * 100) / 100;
 
     let updatedItems;
 
     if (existingItem.amount === 1) {
-      // Last copy, so take the book out of the cart
       updatedItems = state.items.filter((item) => item.id !== action.id);
     } else {
       const updatedItem = {
@@ -66,6 +61,10 @@ const cartReducer = (state, action) => {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
+  }
+
+  if (action.type === "CLEAR") {
+    return defaultCartState;
   }
 
   return state;
@@ -85,11 +84,16 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "REMOVE", id: id });
   };
 
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearCart: clearCartHandler,
   };
 
   return (

@@ -1,0 +1,24 @@
+{
+  "books": {
+    "b1": {
+      "name": "The Great Gatsby",
+      "description": "A classic novel set in the Roaring Twenties.",
+      "price": 14.99
+    },
+    "b2": {
+      "name": "To Kill a Mockingbird",
+      "description": "A deeply moving story about justice and morality.",
+      "price": 12.5
+    },
+    "b3": {
+      "name": "1984",
+      "description": "A compelling dystopian masterpiece.",
+      "price": 10.99
+    },
+    "b4": {
+      "name": "Pride and Prejudice",
+      "description": "A timeless romantic comedy of manners.",
+      "price": 15.99
+    }
+  }
+}

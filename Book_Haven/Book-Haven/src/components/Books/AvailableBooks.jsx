@@ -1,37 +1,63 @@
+import { useEffect, useState } from "react";
 import styles from "./AvailableBooks.module.css";
 import Card from "../UI/Card";
 import BookItem from "./BookItem/BookItem";
-
-// Mock data for now, it will come from Firebase later
-const DUMMY_BOOKS = [
-  {
-    id: "b1",
-    name: "The Great Gatsby",
-    description: "A classic novel set in the Roaring Twenties.",
-    price: 14.99,
-  },
-  {
-    id: "b2",
-    name: "To Kill a Mockingbird",
-    description: "A deeply moving story about justice and morality.",
-    price: 12.5,
-  },
-  {
-    id: "b3",
-    name: "1984",
-    description: "A compelling dystopian masterpiece.",
-    price: 10.99,
-  },
-  {
-    id: "b4",
-    name: "Pride and Prejudice",
-    description: "A timeless romantic comedy of manners.",
-    price: 15.99,
-  },
-];
+import { FIREBASE_URL } from "../../firebase-config";
 
 const AvailableBooks = () => {
-  const booksList = DUMMY_BOOKS.map((book) => (
+  const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
+
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await fetch(`${FIREBASE_URL}/books.json`);
+
+        if (!response.ok)
+          throw new Error("Request failed with status " + response.status);
+
+        const responseData = await response.json();
+
+        // Firebase sends an object, so turn it into an array
+        const loadedBooks = [];
+        for (const key in responseData) {
+          loadedBooks.push({
+            id: key,
+            name: responseData[key].name,
+            description: responseData[key].description,
+            price: responseData[key].price,
+          });
+        }
+
+        setBooks(loadedBooks);
+      } catch {
+        setHttpError("Failed to load books. Please try again later.");
+      }
+
+      setIsLoading(false);
+    };
+
+    fetchBooks();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className={styles.BooksLoading}>
+        <p>Loading books...</p>
+      </section>
+    );
+  }
+
+  if (httpError) {
+    return (
+      <section className={styles.BooksError}>
+        <p>{httpError}</p>
+      </section>
+    );
+  }
+
+  const booksList = books.map((book) => (
     <BookItem
       id={book.id}
       key={book.id}
@@ -44,7 +70,7 @@ const AvailableBooks = () => {
   return (
     <section className={styles.books}>
       <Card>
-        <ul>{booksList}</ul>
+        {books.length === 0 ? <p>No books found.</p> : <ul>{booksList}</ul>}
       </Card>
     </section>
   );

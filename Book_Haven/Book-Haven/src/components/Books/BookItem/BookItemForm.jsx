@@ -9,14 +9,13 @@ const BookItemForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    // Only read the value on submit, so typing does not re-render
     const enteredAmount = amountInputRef.current.value;
 
-    // The + turns the string into a number
     const enteredAmountNumber = +enteredAmount;
 
     if (
       enteredAmount.trim().length === 0 ||
+      !Number.isInteger(enteredAmountNumber) ||
       enteredAmountNumber < 1 ||
       enteredAmountNumber > 5
     ) {
@@ -26,11 +25,10 @@ const BookItemForm = (props) => {
 
     setAmountIsValid(true);
 
-    // Sends the amount up to BookItem, which adds it to the cart
     props.onAddToCart(enteredAmountNumber);
   };
 
-  // noValidate so the browser does not block 0 or 7 before my own error message can show
+  // noValidate lets my own error message show
   return (
     <form className={styles.form} onSubmit={submitHandler} noValidate>
       <Input

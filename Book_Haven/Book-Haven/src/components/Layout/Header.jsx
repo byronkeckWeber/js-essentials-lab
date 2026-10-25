@@ -2,7 +2,6 @@ import booksImage from "../../assets/books.svg";
 import HeaderCartButton from "./HeaderCartButton";
 import styles from "./Header.module.css";
 
-// books.svg is a placeholder, swap in books.jpg when I have a picture
 const Header = (props) => {
   return (
     <>
