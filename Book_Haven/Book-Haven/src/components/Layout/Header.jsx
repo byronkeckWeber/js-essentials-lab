@@ -9,7 +9,7 @@ const Header = (props) => {
         <h1>Book Haven</h1>
         <HeaderCartButton onClick={props.onShowCart} />
       </header>
-      <div className={styles["main-image"]}>
+       <div className={styles["main-image"]}> {/* Used AI to generage a picture for easy styling */}
         <img src={booksImage} alt="Shelves packed with books in warm earth tones." />
       </div>
     </>
