@@ -1,0 +1,37 @@
+{
+  "properties": [
+    {
+      "id": "p2",
+      "title": "Suburban Family Home",
+      "image": "https://www.publicdomainpictures.net/pictures/100000/velka/new-home-for-sale-1405784329d8m.jpg",
+      "address": "456 Oak Avenue",
+      "rent": 2400,
+      "description": "4 bedrooms, 2.5 baths with a large fenced backyard and garage."
+    },
+    {
+      "title": "The house on the block",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGm3-EPGReO14nVGJKy2EWN5Fd1hWhZEQ3TrXjNaXw5A&s=10",
+      "address": "1234 Street Name",
+      "rent": "5",
+      "description": "Too expensive for my taste",
+      "id": "L36JpiWTeZI"
+    },
+    {
+      "title": "big house",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLKptVmXoE5E8cO3NkBUhqwA0vpbf_z3V4AnR-sxZgRQ&s=10",
+      "address": "here",
+      "rent": "67",
+      "description": "A big House",
+      "id": "vt_oEUTTjlA"
+    },
+    {
+      "title": "Another big House(There)",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdND09xAE0rKdydDArc_gjm3dbgYlFZoF82QFVMVuRcw&s=10",
+      "address": "Over There",
+      "rent": "59",
+      "description": "A house",
+      "id": "huopuznS4gc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
